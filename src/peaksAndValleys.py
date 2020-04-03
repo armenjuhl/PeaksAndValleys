@@ -5,8 +5,8 @@ def main():
     peaks_list = peaks(test_data)
     valleys_list = valleys(test_data)
     peaks_and_valleys_list = peaks_and_valleys(test_data)
-    print('Peaks list: ', peaks_list, '\nValleys list: ', valleys_list, '\nPeaks and Valleys list: ', peaks_and_valleys_list)
-    return 'Peaks list: ', peaks_list, 'Valleys list: ', valleys_list, 'Sorted Peaks and Valleys list: ', peaks_and_valleys_list
+    print('Data: ', test_data, 'Peaks list: ', peaks_list, '\nValleys list: ', valleys_list, '\nPeaks and Valleys list: ', peaks_and_valleys_list)
+    return 'Data: ', test_data, 'Peaks list: ', peaks_list, 'Valleys list: ', valleys_list, 'Sorted Peaks and Valleys list: ', peaks_and_valleys_list
 
 
 def peaks(list_data):
