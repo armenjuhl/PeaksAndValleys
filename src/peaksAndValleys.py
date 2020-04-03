@@ -8,9 +8,8 @@ test_data = ['5', '6', '7', '6', '5', '4', '5', '6', '7', '8', '9', '8', '7', '6
 
 
 def main():
-    peaks_list, valleys_list = peaks_and_valleys(test_data)
-    return 'sample data is ', test_data, '\npeaks found: ', peaks_list.values(), '\nvalleys found: ', peaks_list.values
-
+    master_dict = peaks_and_valleys(test_data)
+    return f"Data: {master_dict['data']} \nIndex: {master_dict['index_list']} \nPeaksAndValleys: {master_dict['peaks_and_valleys']}"
 
 def peaks(list_data):
     peaks_dict = dict()
@@ -65,6 +64,5 @@ def peaks_and_valleys(sample_data):
     for key, val in peaks_dict.items():
         p_o_v_indexes
 
-
-    master_list = ['data: ', sample_data, '\nindex', index_list, '\nPeaksAndValleys', p_o_v_indexes]
-    return peaks_dict, valleys_list
+    master_dict = {"data" : sample_data, "index_list": index_list, "peaks_and_valleys": p_o_v_indexes}
+    return master_dict
