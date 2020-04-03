@@ -24,15 +24,15 @@ def peaks(list_data):
 
 
 def valleys(list_data):
-    valley_list = dict()
+    valley_dict = dict()
     for idx, val in enumerate(list_data):
         if len(list_data) - 1 > idx > 0:
             if list_data[idx - 1] > val < list_data[idx + 1]:
-                valley_list[str(idx)] = val
-                print('Peak found ', valley_list[str(idx)])
+                valley_dict[str(idx)] = val
+                print('Peak found ', valley_dict[str(idx)])
 
-    print('peak list is ', valley_list)
-    return valley_list
+    print('peak list is ', valley_dict)
+    return valley_dict
 
 
 def peaks_and_valleys(sample_data):
@@ -46,23 +46,29 @@ def peaks_and_valleys(sample_data):
     # except ValueError:
     #     return 'Invalid sample data given'
 
-    # Create dictionary of peaks with key: index, value: value
-    peaks_dict = peaks(parsed_list)
-    sorted(peaks_dict.keys())
-
-    # Create dictionary of valleys with key: index, value: value
-    valleys_list = valleys(parsed_list)
-    sorted(valleys_list.keys())
-
     # Create list of all indexes of sample_data 0 to -N1
     index_list = list()
     for i in range(0, len(sample_data)):
         index_list.append(i)
 
+    # Create dictionary of peaks with key: index, value: value
+    peaks_dict = peaks(parsed_list)
+    sorted(peaks_dict.keys())
+
+    # Create dictionary of valleys with key: index, value: value
+    valleys_dict = valleys(parsed_list)
+    sorted(valleys_dict.keys())
+
     # Create list of peaks and valleys ordered numerically by index
     p_o_v_indexes = list()
-    for key, val in peaks_dict.items():
-        p_o_v_indexes
+    for i in range(0, len(index_list)):
+        p_o_v_indexes.append('')
 
-    master_dict = {"data" : sample_data, "index_list": index_list, "peaks_and_valleys": p_o_v_indexes}
+    for key, val in peaks_dict.items():
+        p_o_v_indexes[int(key)] = 'P'
+
+    for key, val in valleys_dict.items():
+        p_o_v_indexes[int(key)] = 'V'
+
+    master_dict = {"data": sample_data, "index_list": index_list, "peaks_and_valleys": p_o_v_indexes}
     return master_dict
