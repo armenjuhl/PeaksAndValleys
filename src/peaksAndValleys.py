@@ -38,15 +38,12 @@ def valleys(list_data):
 def peaks_and_valleys(sample_data):
     # Convert items in list to integers
 
-    # try:
-        # for i in range(0, len(sample_data)):
-        #     sample_data[i] = int(sample_data[i])
+    try:
+        parsed_list = list(map(int, sample_data))
+    except ValueError:
+        return 'Invalid sample data given'
 
-    parsed_list = list(map(int, sample_data))
-    # except ValueError:
-    #     return 'Invalid sample data given'
-
-    # Create list of all indexes of sample_data 0 to -N1
+    # Create list of all indexes of sample_data
     index_list = list()
     for i in range(0, len(sample_data)):
         index_list.append(i)
